@@ -6,7 +6,7 @@
 /*   By: mayilmaz <mayilmaz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 22:32:50 by mayilmaz          #+#    #+#             */
-/*   Updated: 2024/11/10 19:41:56 by mayilmaz         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:36:17 by mayilmaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int	ft_adress(unsigned long int c)
 
 	l = 0;
 	ret = 0;
+	if (c == 0)
+		return (ft_putstr("(nil)"));
 	ret = ft_putstr("0x");
 	if (ret == -1)
 		return (-1);

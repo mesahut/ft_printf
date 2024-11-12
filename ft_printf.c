@@ -6,7 +6,7 @@
 /*   By: mayilmaz <mayilmaz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:18:10 by mayilmaz          #+#    #+#             */
-/*   Updated: 2024/11/10 23:13:51 by mayilmaz         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:07:35 by mayilmaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,26 @@ int	ft_handle(const char *a, va_list args)
 {
 	int	i;
 	int	len;
+	int	ret;
 
 	i = 0;
+	ret = 0;
 	len = 0;
 	while (a[i])
 	{
 		if (a[i] == '%')
 		{
 			i++;
-			len += ft_checker(a[i], args);
-			i++;
+			ret = ft_checker(a[i++], args);
+			if (ret == -1)
+				return (-1);
+			len += ret;
 		}
 		else if (a[i])
 		{
-			if (ft_putchar(a[i]) == -1)
+			if (ft_putchar(a[i++]) == -1)
 				return (-1);
 			len++;
-			i++;
 		}
 	}
 	return (len);
